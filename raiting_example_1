@@ -1,0 +1,40 @@
+Задание: 1 ($erges: 2008-06-21)
+Дима и Миша пользуются продуктами от одного и того же производителя.
+Тип Таниного принтера не такой, как у Вити, но признак "цветной или нет" - совпадает.
+Размер экрана Диминого ноутбука на 3 дюйма больше Олиного.
+Мишин ПК в 4 раза дороже Таниного принтера.
+Номера моделей Витиного принтера и Олиного ноутбука отличаются только третьим символом.
+У Костиного ПК скорость процессора, как у Мишиного ПК; объем жесткого диска, как у Диминого ноутбука; объем памяти, как у Олиного ноутбука, а цена - как у Витиного принтера.
+Вывести все возможные номера моделей Костиного ПК.
+
+
+select
+  from poruct as t1
+       inner join select()
+
+       left join pc as t2
+              on t1.model = t2.model
+       left join laptop as t3
+              on t1.model = t3.model
+       left join printer as t4
+              on t1.model = t4.model
+
+-- Витя: принтер; Таня: принтер; Дима: ноутбук; Оля: ноутбук;
+-- Дима и Миша
+dima.product = misha.product
+-- Таня и Витя
+tanya.type_print != vitya.type_print and
+tanya.color= vitya.color
+-- Дима и Оля
+dima.screen = olya.screen + 3
+-- Миша и Таня
+misha.price_pc = tanya.price_print * 4
+-- Витя и Оля
+stuff(vitya.model_print, 3, 1, '') = stuff(olya.model_laptop, 3, 1, '')
+-- Костя и Миша
+kostya.speed_pc = misha.speed_pc
+and kostya.hd_pc = dima.hd_laptop
+and kostya.ram_pc = olya.ram_laptop
+and kostya.price = vitya.price
+
+Миша -> Таня -> Витя -> Оля -> Дима -> Миша
